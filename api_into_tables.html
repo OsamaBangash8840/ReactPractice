@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Data</title>
+</head>
+<body>
+    <!-- HTML code for the table -->
+<table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  
+  <!-- JavaScript code to fetch data from API and populate the table -->
+  <script>
+    const url = 'https://newsapi.org/v2/everything?q=tesla&from=2023-03-16&sortBy=publishedAt'; // replace with your API URL
+    const tableBody = document.querySelector('#data-table tbody');
+  
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.author}</td>
+            <td>${item.description}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
+  
+</body>
+</html>

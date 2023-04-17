@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile Search Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Mobile Search Website</h1>
+	</header>
+	<main>
+		<form>
+			<label for="price-range">Enter your price range:</label>
+			<input type="text" id="price-range" name="price-range">
+			<button type="submit" id="search-button">Search</button>
+		</form>
+		<div id="results-container">
+			<!-- Display search results here -->
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2023 Mobile Search Website. All rights reserved.</p>
+	</footer>
+	<script>
+		navigator.geolocation.getCurrentPosition((position =>{
+			const lat = position.coords.latitude;
+			const lang= position.coords.longitude;
+		}))
+		const form = document.querySelector('form');
+		const searchButton = document.querySelector('#search-button');
+		const resultsContainer = document.querySelector('#results-container');
+
+		searchButton.addEventListener('click', (event) => {
+			event.preventDefault();
+			const priceRange = document.querySelector('#price-range').value;
+			// const url = `https://api.example.com/search?price=${priceRange}`;
+			// const url = `https://jsonplaceholder.typicode.com/todos/${priceRange}`;
+			const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=&longitude=71.5249&localityLanguage=en${priceRange}`;
+
+			fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					const resultItem = document.createElement('div');
+					resultItem.classList.add('result-item');
+					resultItem.innerHTML = `
+						<h3>${data.latitude}</h3>
+						<p>ID: ${data.longitude}</p>
+						<p>User ID: ${data.city}</p>
+						<p>Completed: ${data.countryCode}
+							`;
+							resultsContainer.appendChild(resultItem);
+						})
+						.catch(error => console.log(error));
+					});
+					</script>
+</body>
+</html>
+
+<!-- </p><h3>${data.title}</h3>
+<p>ID: ${data.id}</p>
+<p>User ID: ${data.userId}</p>
+<p>Completed: ${data.completed}</p> -->

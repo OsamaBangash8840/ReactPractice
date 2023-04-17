@@ -7,10 +7,194 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!-- <p id="id1">This element has id = "id1".</p>
+    <button onclick="findElement()">Access element</button> -->
+
+        <!-- <p id="id1">This is <strong>Paragraph 1</strong>.</p>
+    <div id="id2">
+    <div class="column">
+        <p>This is column 1.</p>
+    </div>
+    <div class="column">
+        <p>This is column 2.</p>
+    </div>
+    </div>
+    <button onclick="textNode1()">Show node1 innerText</button>
+    <button onclick="textNode2()">Show node2 innerText</button> -->
+    
+    
     <script>
-        const number= [1,2,3,4,5]
-        const doubled = number.map(n => n*2)
-        console.log(doubled);
+
+            fetch('https://jsonplaceholder.typicode.com/todos')
+            .then((res) => res.json())
+            .then(json => {
+                console.log(json)
+            })
+
+            localStorage
+
+        
+        // const node1 = document.getElementById("id1");
+        // const node2 = document.getElementById("id2");
+        // function textNode1() {
+        //     alert(node1.innerText);
+        // }
+        // function textNode2() {
+        //     alert(node2.innerText);
+        // }
+            
+    //Map , Filter and Reduce Method in Arrays
+        
+        // const number= [1,2,3,4,5]
+        // const doubled = number.map(n => n*2)
+        // console.log(doubled);
+        
+        // const number= [1,2,3,4,5]
+        // const filtering = number.filter(n => n > 2)
+        // console.log(filtering)
+        
+        // const numbers= [1,2,3,4,5]
+        // let nums = numbers.reduce((accu, val) => val + accu)
+        // console.log(nums)
+
+//             function findElement() {
+//         const element = document.getElementById("id1");
+//         element.innerHTML = "Element found!";
+//   }
+
+
+
+// CallBacK Hell 
+
+// function doSomething(callback) {
+//   setTimeout(() => {
+//     console.log('First function called...');
+//     callback('Result 1');
+//   }, 1000);
+// }
+
+// function doSomethingElse(result, callback) {
+//   setTimeout(() => {
+//     console.log(`Second function called with ${result}`);
+//     callback('Result 2');
+//   }, 1000);
+// }
+
+// function doSomethingElseAgain(result, callback) {
+//   setTimeout(() => {
+//     console.log(`Third function called with ${result}`);
+//     callback('Result 3');
+//   }, 1000);
+// }
+
+// function doYetAnotherThing(result, callback) {
+//   setTimeout(() => {
+//     console.log(`Fourth function called with ${result}`);
+//     callback('Result 4');
+//   }, 1000);
+// }
+
+// doSomething((result1) => {
+//   doSomethingElse(result1, (result2) => {
+//     doSomethingElseAgain(result2, (result3) => {
+//       doYetAnotherThing(result3, (result4) => {
+//         console.log(`Final result is ${result4}`);
+//       });
+//     });
+//   });
+// });
+
+
+//Promises
+
+// function doSomething() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log('First function called...');
+//       resolve('Result 1');
+//     }, 1000);
+//   });
+// }
+
+// function doSomethingElse(result) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log(`Second function called with ${result}`);
+//       resolve('Result 2');
+//     }, 1000);
+//   });
+// }
+
+// function doSomethingElseAgain(result) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log(`Third function called with ${result}`);
+//       resolve('Result 3');
+//     }, 1000);
+//   });
+// }
+
+// function doYetAnotherThing(result) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log(`Fourth function called with ${result}`);
+//       resolve('Result 4');
+//     }, 1000);
+//   });
+// }
+
+// doSomething()
+//   .then((result1) => doSomethingElse(result1))
+//   .then((result2) => doSomethingElseAgain(result2))
+//   .then((result3) => doYetAnotherThing(result3))
+//   .then((result4) => console.log(`Final result is ${result4}`))
+//   .catch((error) => console.log(error));
+
+// Async & Await
+// function fetchData() {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve('Data fetched successfully!');
+//     }, 2000);
+//   });
+// }
+
+// function processData(data) {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve(`Data processed: ${data}`);
+//     }, 2000);
+//   });
+// }
+
+// function saveData(data) {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve(`Data saved: ${data}`);
+//     }, 2000);
+//   });
+// }
+
+// async function fetchAndSaveData() {
+//   console.log('Fetching data...');
+//   const data = await fetchData();
+//   console.log(data);
+
+//   console.log('Processing data...');
+//   const processedData = await processData(data);
+//   console.log(processedData);
+
+//   console.log('Saving data...');
+//   const savedData = await saveData(processedData);
+//   console.log(savedData);
+// }
+
+// fetchAndSaveData();
+
+
+
+
 
     </script>
 </body>
